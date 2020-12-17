@@ -19,19 +19,20 @@
         }
     };
 
-
+    //用Try的方式包起來，預防錯誤導致檔案掛掉
     try {
         // 實例 XMLHttpRequest 物件
         var xhr = new XMLHttpRequest();
 
-        /*
+        /* 
          * {string} 請求方法 (method)
          * {string} 目標 url
          * {boolean} 非同步 [async] -- 可選
          * {string} 使用者 [user] -- 可選
          * {string} 密碼 [password] -- 可選
          */
-        xhr.open("GET", "https://steven5j.github.io/Blog/Data/PostData.json");
+        xhr.open("GET", "https://steven5j.github.io/Blog/Data/Godzilla_Monster.json");
+        //xhr.open("GET", "https://gank.io/api/random/data/%E7%A6%8F%E5%88%A9/20");
 
         // 非同步取得回應
         xhr.onload = function () {
@@ -42,7 +43,8 @@
 
             // 建構元 (strategy, response)
             var handler;
-
+            console.log("HTTP連線狀態碼:" + xhr.status);
+            //if(200 <= xhr.status && xhr.status <= 299){
             // 使用簡易的 正規表達式，判斷媒體類型
             if (type.match(/^application\/json/)) {
                 handler = new Handler(jsonHandler, JSON.parse(xhr.responseText));
@@ -51,6 +53,8 @@
             } else {
                 handler = new Handler(textHandler, xhr.responseText);
             }
+            //}
+
 
             handler.handleResponse();
         };
