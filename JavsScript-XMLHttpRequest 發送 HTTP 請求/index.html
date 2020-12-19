@@ -105,16 +105,7 @@
         document.body.innerHTML = response;
     }
     
-    var payload = {name: "勝", city: "Taipei"};
-var xhr = new XMLHttpRequest();
-xhr.open("POST", "demo_test_post.asp");
-xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=UTF-8');
-xhr.onload = function () {
-    document.body.innerHTML = xhr.responseText;
-};
-var encodedData = encodeFormData(payload);
 
-xhr.send(encodedData);
 </script>
 </body>
 </html>
