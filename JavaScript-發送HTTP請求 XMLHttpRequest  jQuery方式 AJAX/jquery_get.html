@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Demo</title>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<script>
+
+    // jQuery.get 方法 回傳實作 Promise 的 jQuery XMLHttpRequest 物件
+    $.get("https://steven5j.github.io/Blog/Data/Godzilla_Monster.json")
+            .done(res => {
+                jsonHandler(res) ;console.log("success!");
+            })
+            .fail(function(){console.error("error")})
+            .always(function(){console.log("Finish!")});
+
+    // 簡易處理 JSON 回應處理 輸出格式
+    function jsonHandler(response) {
+        let data = response.results;
+        // 建立緩衝的文件片段 docFrag
+        let docFrag = document.createDocumentFragment();
+        for (var i = 0, l = data.length; i < l; i++) {
+            var url = data[i].url;
+            var img = document.createElement("img");
+            img.src = url;
+            img.width = 300;
+            // 將 img 添加至 docFrag
+            docFrag.appendChild(img);
+        }
+        // 將含有多個 img 的 docFrag
+        // 一次新增至 HTML 的 body 中
+        document.body.appendChild(docFrag);
+    }
+</script>
+</body>
+</html>
