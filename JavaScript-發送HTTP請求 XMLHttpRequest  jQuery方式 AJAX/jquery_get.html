@@ -11,7 +11,8 @@
     // jQuery.get 方法 回傳實作 Promise 的 jQuery XMLHttpRequest 物件
     $.get("https://steven5j.github.io/Blog/Data/Godzilla_Monster.json")
             .done(res => {
-                jsonHandler(res) ;console.log("success!");
+                jsonHandler(res) ;
+                console.log("success!");
             })
             .fail(function(){console.error("error")})
             .always(function(){console.log("Finish!")});
