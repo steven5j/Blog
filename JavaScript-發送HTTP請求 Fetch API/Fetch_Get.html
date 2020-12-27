@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch_Get</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=fetch"></script>
+    <!-- <script src="//cdn.polyfill.io/v2/polyfill.min.js?features=fetch"></script> -->
+</head>
+<body>
+
+    <script>
+    fetch('https://steven5j.github.io/Blog/Data/Godzilla_Monster.json', {method: 'get'})
+    .then(processStatus)
+    .then(function (res) {
+        console.log(res);
+        // if (!response.ok) throw new Error(response.statusText)
+        return res.json();
+    })
+    .then(function (data) {
+        console.log(data);
+        jsonHandler(data);
+    })
+    .catch(function(err) {
+        console.log(err);
+    // Error :(
+    });
+
+    function processStatus(response) {
+    // 狀態 "0" 是處理本地檔案 (例如Cordova/Phonegap等等)
+    if (response.status === 200 || response.status === 0) {
+        console.log(response.status);
+        document.write("HTTP連線狀態碼:" + response.status);
+        return Promise.resolve(response)
+    } else {
+        console.log(response.status);
+        document.write("HTTP連線狀態碼:" + response.status);
+        return Promise.reject(new Error(response.statusText))
+    }
+    }
+
+        // 簡易處理 JSON 回應處理 輸出格式
+        function jsonHandler(response) {
+        let data = response.results;
+        // 建立緩衝的文件片段 docFrag
+        let docFrag = document.createDocumentFragment();
+        for (var i = 0, l = data.length; i < l; i++) {
+            var url = data[i].url;
+            var img = document.createElement("img");
+            img.src = url;
+            img.width = 300;
+            // 將 img 添加至 docFrag
+            docFrag.appendChild(img);
+        }
+        // 將含有多個 img 的 docFrag
+        // 一次新增至 HTML 的 body 中
+        document.body.appendChild(docFrag);
+    }
+</script>
+</body>
+</html>
