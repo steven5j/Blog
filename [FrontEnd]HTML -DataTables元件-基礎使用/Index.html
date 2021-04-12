@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/v/bs4/dt-1.10.24/af-2.3.5/datatables.min.css" />
+
+       
+</head>
+<body>
+
+    <table id="demo_datatables" class="display table-bordered  table table-responsive  table-hover" style="width:100%;">
+        <thead>
+            <th class="text-center">序號</th>
+            <th class="text-center">Col_1</th>
+            <th class="text-center">Col_2</th>
+            <th class="text-center">Status</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    1
+                </td>
+                <td>
+                    Col_1
+                </td>
+                <td>
+                    Col_2
+                </td>
+                <td>
+                    open
+                </td>
+            </tr>
+        </tbody>
+     </table>
+
+
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script type="text/javascript"
+    src="https://cdn.datatables.net/v/bs4/dt-1.10.24/af-2.3.5/datatables.min.js"></script>
+
+    <script>
+        $(document).ready( function () {
+            $('#demo_datatables').DataTable();
+        } );
+    </script>
+</body>
+</html>
